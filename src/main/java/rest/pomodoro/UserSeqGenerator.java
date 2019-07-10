@@ -21,7 +21,7 @@ public class UserSeqGenerator {
 
     public long generatedSequence(String seqName) {
         
-        UserSeq counter = mongoOperations.findAndModify(query(where("_id").is(seqName)),
+    UserSeq counter = mongoOperations.findAndModify(query(where("_id").is(seqName)),
     new Update().inc("seq", 1), options().returnNew(true).upsert(true),
     UserSeq.class);
     return !Objects.isNull(counter) ? counter.getSeq() : 1;
