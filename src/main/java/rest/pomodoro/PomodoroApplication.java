@@ -22,7 +22,6 @@ public class PomodoroApplication implements CommandLineRunner {
 		mk.setFirstname("Mikaz");
 		mk.setLastname("Titarat");
 		mk.setScore(0);
-		//mk.setId(seqGenerator.generatedSequence(User.SEQ_NAME));
 		repository.save(mk);
 		repository.save(new User("Mikaz","Spare",2000));
 
