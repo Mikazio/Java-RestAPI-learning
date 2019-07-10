@@ -18,8 +18,12 @@ public class PomodoroApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		repository.deleteAll();
-
-		repository.save(new User("Mikaz","Titarat",9652));
+		User mk = new User();
+		mk.setFirstname("Mikaz");
+		mk.setLastname("Titarat");
+		mk.setScore(0);
+		//mk.setId(seqGenerator.generatedSequence(User.SEQ_NAME));
+		repository.save(mk);
 		repository.save(new User("Mikaz","Spare",2000));
 
 		for (User user : repository.findAll()) {
@@ -27,7 +31,7 @@ public class PomodoroApplication implements CommandLineRunner {
 		}
 		System.out.println();
 
-		for (User user : repository.findByFirstName("Mikaz")){
+		for (User user : repository.findByFirstname("Mikaz")){
 			System.out.println(user);
 		}
 	}

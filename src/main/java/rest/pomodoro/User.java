@@ -1,10 +1,18 @@
 package rest.pomodoro;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "users")
+    
 public class User {
+
+    @Transient
+    public static final String SEQ_NAME = "users_seq";
+
     @Id
-    public long id;
+    private long id;
     public String firstname;
     public String lastname;
     public long score;
